@@ -14,7 +14,7 @@ This document is part of the All Things Agentic Hackathon submission for **Autom
 
 ## Pre-existing code incorporated
 
-The entrant previously created the generic **Automatom** prototype. The following portions are incorporated as a starting point and are disclosed as pre-existing: generic workflow schemas in `app/schemas.py`; broad workflow and scheduling experimentation in `app/engine.py`; the local run-state persistence pattern in `app/services/records.py`; and the generic workflow create/run routes in `app/main.py`.
+The entrant previously created the generic **Automatom** prototype. The following portions are incorporated as a starting point and are disclosed as pre-existing: generic workflow schemas in `app/schemas.py`; the local run-state persistence pattern in `app/services/records.py`; and the generic workflow create/run routes in `app/main.py`.
 
 This baseline is owned by the entrant and licensed MIT in the original project. It is included because it supplies a small inspectable workflow shell, not because it fulfils the hackathon challenge by itself. It did not contain the Google-native BriefRunner implementation described below.
 
