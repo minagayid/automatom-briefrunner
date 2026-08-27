@@ -10,9 +10,9 @@ The All Things Agentic Hackathon requires Gemini 3.5 or later, a Google agent fr
 
 | Required element | BriefRunner implementation | Evidence reviewers can inspect |
 |---|---|---|
-| Gemini model | `gemini-3.5-flash` invoked through Vertex AI | `app/google_runtime.py` and the live `/health` endpoint |
+| Gemini model | `gemini-3.5-flash` invoked through Vertex AI | `app/google_runtime.py` and the published Cloud Run evidence video |
 | Google agent framework | Google Gen AI SDK (`google-genai`) | `requirements-google.txt` and `app/google_runtime.py` |
-| Google Cloud infrastructure | Cloud Run container deployment | `Dockerfile`, deployment commands, Cloud Run service URL, and video evidence |
+| Google Cloud infrastructure | Cloud Run container deployment, previously verified in the configured Google Cloud project | `Dockerfile`, deployment commands, recorded Cloud Run dashboard/log proof, and the public evidence video |
 | Autonomous workflow | FastAPI starts a background run, then exposes its status | `POST /demo-runs`, `GET /runs/{runUid}` |
 | Human control | A result remains `awaiting_approval`; approval never sends a message | `POST /runs/{runUid}/approve` and automated tests |
 
@@ -20,7 +20,7 @@ The All Things Agentic Hackathon requires Gemini 3.5 or later, a Google agent fr
 
 ![BriefRunner Google-native architecture](all-things-agentic-architecture.png)
 
-A request first enters the FastAPI service running on Cloud Run. The background runner invokes the Google Gen AI SDK, configured for Vertex AI Application Default Credentials, to call Gemini and produce a reviewable brief. The run and its status are stored locally for this small demonstration. The API exposes the result for review; an explicit approval only records an approved handoff state and never dispatches a notification.
+In the Google Cloud production path, a request enters the FastAPI service packaged for Cloud Run. The background runner invokes the Google Gen AI SDK, configured for Vertex AI Application Default Credentials, to call Gemini and produce a reviewable brief. The run and its status are stored locally for this small demonstration. The API exposes the result for review; an explicit approval only records an approved handoff state and never dispatches a notification. The original Cloud Run service is currently unavailable because the project’s free-trial state expired; recorded Cloud Run dashboard and log evidence is preserved in the published demo video.
 
 ```mermaid
 flowchart LR
@@ -131,6 +131,10 @@ python -m pytest -q
 ```
 
 The tests exercise the deterministic contract, approval behavior, and the camel-case payload returned by the API. They do not make paid cloud calls.
+
+## Published evidence video
+
+The public English-language evidence video is available at [Automatom — Gemini 3.5 Flash & Cloud Run Evidence Demo](https://youtu.be/XqphKLthw5o). It is 2:22 long and explicitly distinguishes the reproducible offline review-mode workflow from the recorded historical Vertex AI and Cloud Run evidence. Its description states that it was created for the purposes of entering the All Things Agentic Hackathon.
 
 ## Demo video checklist
 

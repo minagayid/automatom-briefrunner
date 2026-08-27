@@ -19,8 +19,8 @@ Use this copy in the **All Things Agentic Hackathon** submission editor. Replace
 | Devpost field | Value |
 |---|---|
 | Code repository | `https://github.com/minagayid/automatom-briefrunner` |
-| Hosted project | `[verified Cloud Run .run.app URL]/docs` |
-| Demo video | `[public YouTube or Vimeo URL, maximum 4 minutes]` |
+| Hosted project | Not supplied: the prior Cloud Run trial has expired, so the submission does not claim a currently live public endpoint. |
+| Demo video | `[public YouTube or Vimeo URL, 2 minutes 21 seconds]` |
 
 ## Inspiration
 
@@ -34,7 +34,7 @@ BriefRunner accepts a plain-language briefing request and starts an asynchronous
 
 The backend is a FastAPI service deployed on **Google Cloud Run**. The background BriefRunner workflow invokes **Gemini 3.5 Flash through Vertex AI** using the **Google Gen AI SDK**, which is the Google agent framework used by this project. The run is persisted in a small SQLite store for this demonstration and exposed through status endpoints. The agent has a deliberately bounded scope: it does not claim live data without being given it, execute arbitrary tools, or make irreversible changes.
 
-The repository includes a Dockerfile, exact dependency manifest, architecture diagram, local spin-up guide, Cloud Run deployment instructions, tests, and a non-secret `/health` endpoint that reports the selected agent mode and Google runtime metadata. The demo video shows the live Cloud Run service, Gemini-mode agent run, returned brief, approval transition, and the fact that `sent` remains `false`.
+The repository includes a Dockerfile, exact dependency manifest, architecture diagram, local spin-up guide, Cloud Run deployment instructions, tests, and a non-secret `/health` endpoint that reports the selected agent mode and Google runtime metadata. The demo video distinguishes a reproducible offline review run from the recorded Cloud Run deployment evidence: it shows the deployed service URL and historical successful Gemini-mode request logs, then the returned brief, approval transition, and the fact that `sent` remains `false`.
 
 ## Challenges we ran into
 
